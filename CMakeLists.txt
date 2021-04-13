@@ -22,8 +22,15 @@ target_link_libraries(
   Threads::Threads
   sfml-audio
   sfml-graphics
-  sfml-main
   sfml-network
   sfml-system
   sfml-window
 )
+
+if(WIN32)
+  target_link_libraries(
+    ${APP_NAME}
+    PRIVATE
+    sfml-main
+  )
+endif()
