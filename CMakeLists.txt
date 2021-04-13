@@ -8,8 +8,22 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Threads REQUIRED)
 
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries" FORCE)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/SFML)
+
 set(APP_NAME sfml_sample_app)
 
 add_executable(${APP_NAME} src/main.cpp)
 
-target_link_libraries(${APP_NAME} PRIVATE Threads::Threads)
+target_link_libraries(
+  ${APP_NAME}
+  PRIVATE
+  Threads::Threads
+  sfml-audio
+  sfml-graphics
+  sfml-main
+  sfml-network
+  sfml-system
+  sfml-window
+)
