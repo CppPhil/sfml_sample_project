@@ -5,7 +5,7 @@
 int main()
 {
   sf::RenderWindow window{
-    sf::VideoMode{800, 600},
+    sf::VideoMode{sf::Vector2u{800, 600}},
     "My window"
   };
   window.setVerticalSyncEnabled(true);
